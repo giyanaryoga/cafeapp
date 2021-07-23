@@ -6,9 +6,7 @@ use CodeIgniter\Model;
 
 class PesananModel extends Model
 {
-    protected $table = "Pesanan";
-    protected $primaryKey = "id";
-    protected $returnType = "object";
+    protected $table = "pesanan";
     protected $useTimestamps = true;
     protected $allowedFields = ['id_customer', 'id_status', 'jumlah_harga'];
 }

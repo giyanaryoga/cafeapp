@@ -6,6 +6,9 @@ class Home extends BaseController
 {
 	public function index()
 	{
-		return view('welcome_message');
+		$data = [
+			'title' => 'Gya Cafe'
+		];
+		return view('welcome_message', $data);
 	}
 }

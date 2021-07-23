@@ -14,13 +14,16 @@ class Menu extends Migration
 				'unsigned' => true,
 				'auto_increment' => true
 			],
+			'slug' => [
+				'type' => 'VARCHAR',
+				'constraint' => 255
+			],
 			'namaMenu' => [
 				'type' => 'VARCHAR',
 				'constraint' => 255
 			],
 			'harga' => [
-				'type' => 'VARCHAR',
-				'constraint' => 255,
+				'type' => 'INT',
 				'null' => true
 			],
 			'gambar' => [

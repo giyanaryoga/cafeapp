@@ -6,9 +6,16 @@ use CodeIgniter\Model;
 
 class MenuModel extends Model
 {
-    protected $table = "Menu";
-    protected $primaryKey = "id";
-    protected $returnType = "object";
+    protected $table = "menu";
     protected $useTimestamps = true;
-    protected $allowedFields = ['namaMenu', 'harga', 'gambar', 'id_kategori', 'id_status'];
+    protected $allowedFields = ['slug', 'namaMenu', 'harga', 'gambar', 'id_kategori', 'id_status'];
+
+    public function getMenu($slug = false)
+    {
+        if ($slug == false) {
+            return $this->findAll();
+        }
+
+        return $this->where(['slug' => $slug])->first();
+    }
 }

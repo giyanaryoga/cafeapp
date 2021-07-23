@@ -6,9 +6,7 @@ use CodeIgniter\Model;
 
 class StatusMenuModel extends Model
 {
-    protected $table = "StatusMenu";
-    protected $primaryKey = "id";
-    protected $returnType = "object";
+    protected $table = "statusmenu";
     protected $useTimestamps = true;
     protected $allowedFields = ['name', 'deskripsi'];
 }

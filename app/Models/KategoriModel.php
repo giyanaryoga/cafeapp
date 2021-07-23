@@ -6,9 +6,7 @@ use CodeIgniter\Model;
 
 class KategoriModel extends Model
 {
-    protected $table = "KategoriMenu";
-    protected $primaryKey = "id";
-    protected $returnType = "object";
+    protected $table = "kategorimenu";
     protected $useTimestamps = true;
     protected $allowedFields = ['name'];
 }

@@ -20,7 +20,6 @@ class DetailPesanan extends Migration
 			],
 			'qty' => [
 				'type' => 'INT',
-				'constraint' => 255,
 			],
 			'note' => [
 				'type' => 'VARCHAR',

@@ -16,7 +16,7 @@ class StatusMenu extends Migration
 			],
 			'name' => [
 				'type' => 'VARCHAR',
-				'constraint' => 11,
+				'constraint' => 50,
 			],
 			'deskripsi' => [
 				'type' => 'VARCHAR',

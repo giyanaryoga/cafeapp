@@ -16,7 +16,7 @@ class KategoriMenu extends Migration
 			],
 			'name' => [
 				'type' => 'VARCHAR',
-				'constraint' => 20,
+				'constraint' => 50,
 			],
 			'created_at' => [
 				'type' => 'DATETIME',

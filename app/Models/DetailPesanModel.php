@@ -6,9 +6,7 @@ use CodeIgniter\Model;
 
 class DetailPesanModel extends Model
 {
-    protected $table = "DetailPesan";
-    protected $primaryKey = "id";
-    protected $returnType = "object";
+    protected $table = "detailpesan";
     protected $useTimestamps = true;
     protected $allowedFields = ['id_menu', 'qty', 'note', 'id_pesan'];
 }

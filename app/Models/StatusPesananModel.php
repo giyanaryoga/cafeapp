@@ -6,9 +6,7 @@ use CodeIgniter\Model;
 
 class StatusPesananModel extends Model
 {
-    protected $table = "StatusPesanan";
-    protected $primaryKey = "id";
-    protected $returnType = "object";
+    protected $table = "statuspesanan";
     protected $useTimestamps = true;
     protected $allowedFields = ['name', 'deskripsi'];
 }

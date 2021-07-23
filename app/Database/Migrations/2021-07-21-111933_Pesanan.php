@@ -24,7 +24,6 @@ class Pesanan extends Migration
 			],
 			'jumlah_harga' => [
 				'type' => 'INT',
-				'constraint' => 15,
 				'null' => true
 			],
 			'created_at' => [

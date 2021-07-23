@@ -6,9 +6,7 @@ use CodeIgniter\Model;
 
 class RoleModel extends Model
 {
-    protected $table = "Role";
-    protected $primaryKey = "id";
-    protected $returnType = "object";
+    protected $table = "role";
     protected $useTimestamps = true;
     protected $allowedFields = ['nama_role'];
 }
