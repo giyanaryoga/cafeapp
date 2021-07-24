@@ -10,21 +10,22 @@
                 <thead>
                     <tr>
                         <th scope="col">No.</th>
-                        <th scope="col">Gambar</th>
-                        <th scope="col">Nama Menu</th>
-                        <th scope="col">Harga</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Role</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $i = 1; ?>
-                    <?php foreach ($menu as $m) : ?>
+                    <?php foreach ($user as $u) : ?>
                         <tr>
                             <th scope="row"><?= $i++; ?></th>
-                            <td><img src="/img/<?= $m['gambar']; ?>" alt="" class="foto"></td>
-                            <td><?= $m['namaMenu']; ?></td>
-                            <td><?= $m['harga']; ?></td>
-                            <td><a href="/menu/<?= $m['slug']; ?>" class="btn btn-success">Detail</a></td>
+                            <td><?= $u['username']; ?></td>
+                            <td><?= $u['name']; ?></td>
+                            <td><?= $u['email']; ?></td>
+                            <td><a href="/user/<?= $u['username']; ?>" class="btn btn-success">Detail</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

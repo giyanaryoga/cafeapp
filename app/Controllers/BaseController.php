@@ -57,7 +57,8 @@ class BaseController extends Controller
 		session();
 
 		$this->menuModel = new \App\Models\MenuModel();
-		// $this->kategoriModel = new \App\Models\KategoriModel();
+		$this->kategoriModel = new \App\Models\KategoriModel();
+		$this->statusMenuModel = new \App\Models\StatusMenuModel();
 		// $this->detailPesanModel = new \App\Models\DetailPesanModel();
 		// $this->pesananModel = new \App\Models\PesananModel();
 		// $this->customerModel = new \App\Models\CustomerModel();
