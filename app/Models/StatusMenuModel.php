@@ -8,6 +8,6 @@ class StatusMenuModel extends Model
 {
     protected $table = "statusmenu";
     protected $useTimestamps = true;
-    protected $returnType = "object";
+    // protected $returnType = "object";
     protected $allowedFields = ['name', 'deskripsi'];
 }

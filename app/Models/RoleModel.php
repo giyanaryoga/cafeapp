@@ -8,6 +8,6 @@ class RoleModel extends Model
 {
     protected $table = "role";
     protected $useTimestamps = true;
-    protected $returnType = "object";
-    protected $allowedFields = ['nama_role'];
+    // protected $returnType = "object";
+    protected $allowedFields = ['name_role'];
 }

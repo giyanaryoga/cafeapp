@@ -62,7 +62,7 @@ class BaseController extends Controller
 		// $this->detailPesanModel = new \App\Models\DetailPesanModel();
 		// $this->pesananModel = new \App\Models\PesananModel();
 		// $this->customerModel = new \App\Models\CustomerModel();
-		// $this->KategoriModel = new \App\Models\KategoriModel();
+		$this->roleModel = new \App\Models\RoleModel();
 		// $this->KategoriModel = new \App\Models\KategoriModel();
 		// $this->KategoriModel = new \App\Models\KategoriModel();
 	}

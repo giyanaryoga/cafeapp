@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-10 mx-5">
             <h1 class="mb-4"><?= $title; ?></h1>
-            <form action="/menu/save" method="post">
+            <form action="/menu/save" method="post" enctype="multipart/form-data">
                 <?= csrf_field(); ?>
                 <div class="row mb-3">
                     <label for="namaMenu" class="col-sm-2 col-form-label">Nama Menu:</label>
@@ -35,8 +35,17 @@
                 </div>
                 <div class="row mb-3">
                     <label for="gambar" class="col-sm-2 col-form-label">Gambar:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="gambar" name="gambar" value="<?= old('gambar'); ?>">
+                    <div class="col-sm-2">
+                        <img src="/img/default.jpg" class="img-thumbnail img-preview">
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input <?= ($validation->hasError('gambar')) ? 'is-invalid' : ''; ?>" id="gambar" name="gambar" aria-describedby="inputGroupFileAddon03" onchange="previewImg()">
+                            <label class="custom-file-label" for="gambar">Pilih gambar...</label>
+                            <div id="validationServer03Feedback" class="invalid-feedback">
+                                <?= $validation->getError('gambar'); ?>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row mb-3">

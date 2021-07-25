@@ -8,6 +8,6 @@ class PesananModel extends Model
 {
     protected $table = "pesanan";
     protected $useTimestamps = true;
-    protected $returnType = "object";
+    // protected $returnType = "object";
     protected $allowedFields = ['id_customer', 'id_status', 'jumlah_harga'];
 }

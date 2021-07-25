@@ -8,6 +8,6 @@ class KategoriModel extends Model
 {
     protected $table = "kategorimenu";
     protected $useTimestamps = true;
-    protected $returnType = "object";
+    // protected $returnType = "object";
     protected $allowedFields = ['name'];
 }

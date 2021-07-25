@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-use BadFunctionCallException;
-
 class Menu extends BaseController
 {
     protected $menuModel;
@@ -60,18 +58,41 @@ class Menu extends BaseController
                     'is_unique' => 'Nama menu sudah terdaftar'
                 ]
             ],
-            'id_kategori' => []
+            'gambar' => [
+                'rules' => 'max_size[gambar,5024]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'max_size' => 'Ukuran gambar terlalu besar',
+                    'is_image' => 'Yang dipilih bukan gambar',
+                    'mine_in' => 'Yang dipilih bukan gambar'
+                ]
+            ]
         ])) {
-            $validation = \Config\Services::validation();
-            return redirect()->to('/menu/create')->withInput()->with('validation', $validation);
+            // $validation = \Config\Services::validation();
+            // return redirect()->to('/menu/create')->withInput()->with('validation', $validation);
+            return redirect()->to('/menu/create')->withInput();
         }
+
+        //ambil gambar
+        $fileGambar = $this->request->getFile('gambar');
+        //jika tidak ada file gambar yang diupload
+        if ($fileGambar->getError() == 4) {
+            $namaGambar = 'default.jpg';
+        } else {
+            //generate nama gambar
+            $namaGambar = $fileGambar->getRandomName();
+            //pindah ke file public img
+            $fileGambar->move('img');
+            //ambil nama file ke name
+            // $namaGambar = $fileGambar->getName();
+        }
+
         $slug = url_title($this->request->getVar('namaMenu'), '-', true);
         $this->menuModel->save([
             'slug' => $slug,
             'namaMenu' => $this->request->getVar('namaMenu'),
             'id_kategori' => $this->request->getVar('id_kategori'),
             'harga' => $this->request->getVar('harga'),
-            'gambar' => $this->request->getVar('gambar'),
+            'gambar' => $namaGambar,
             'id_status' => $this->request->getVar('id_status')
         ]);
 
@@ -82,6 +103,13 @@ class Menu extends BaseController
 
     public function delete($id)
     {
+        //cari gambar berdasarkan id
+        $menu = $this->menuModel->find($id);
+        //cek jika gambarnya default.jpg
+        if ($menu['gambar'] != 'default.jpg') {
+            unlink('img/' . $menu['gambar']);
+        }
+
         $this->menuModel->delete($id);
         session()->setFlashdata('pesan', 'Data berhasil dihapus.');
         return redirect()->to('/menu');
@@ -109,10 +137,36 @@ class Menu extends BaseController
                     'is_unique' => 'Nama menu sudah terdaftar'
                 ]
             ],
-            'id_kategori' => []
+            'gambar' => [
+                'rules' => 'max_size[gambar,5024]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'max_size' => 'Ukuran gambar terlalu besar',
+                    'is_image' => 'Yang dipilih bukan gambar',
+                    'mine_in' => 'Yang dipilih bukan gambar'
+                ]
+            ]
         ])) {
-            $validation = \Config\Services::validation();
-            return redirect()->to('/menu/edit/' . $this->request->getVar('slug'))->withInput()->with('validation', $validation);
+            return redirect()->to('/menu/edit/' . $this->request->getVar('slug'))->withInput();
+        }
+
+        $fileGambar = $this->request->getFile('gambar');
+        $fileGambarLama = $this->request->getVar('gambarLama');
+        //cek jika gambar berubah dari file yang lama
+        if ($fileGambar->getError() == 4) {
+            $namaGambar = $fileGambarLama;
+            //jika file yang lama default.jpg
+        } else if ($fileGambarLama == 'default.jpg') {
+            //generate nama baru
+            $namaGambar = $fileGambar->getRandomName();
+            //pindahkan gambar ke public img
+            $fileGambar->move('img', $namaGambar);
+        } else {
+            //generate nama baru
+            $namaGambar = $fileGambar->getRandomName();
+            //pindahkan gambar ke public img
+            $fileGambar->move('img', $namaGambar);
+            //hapus file yang lama
+            unlink('img/' . $fileGambarLama);
         }
 
         $slug = url_title($this->request->getVar('namaMenu'), '-', true);
@@ -122,7 +176,7 @@ class Menu extends BaseController
             'namaMenu' => $this->request->getVar('namaMenu'),
             'id_kategori' => $this->request->getVar('id_kategori'),
             'harga' => $this->request->getVar('harga'),
-            'gambar' => $this->request->getVar('gambar'),
+            'gambar' => $namaGambar,
             'id_status' => $this->request->getVar('id_status')
         ]);
 

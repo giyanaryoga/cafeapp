@@ -8,6 +8,6 @@ class UserModel extends Model
 {
     protected $table = "user";
     protected $useTimestamps = true;
-    protected $returnType = "object";
+    // protected $returnType = "object";
     protected $allowedFields = ['username', 'password', 'email', 'name', 'id_role'];
 }
