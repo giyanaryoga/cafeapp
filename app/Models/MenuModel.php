@@ -8,7 +8,6 @@ class MenuModel extends Model
 {
     protected $table = "menu";
     protected $useTimestamps = true;
-    // protected $returnType = "object";
     protected $allowedFields = ['slug', 'namaMenu', 'harga', 'gambar', 'id_kategori', 'id_status'];
 
     public function getMenu($slug = false)

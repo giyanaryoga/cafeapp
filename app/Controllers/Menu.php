@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\MenuModel;
+use BadFunctionCallException;
 
 class Menu extends BaseController
 {
@@ -17,11 +17,9 @@ class Menu extends BaseController
 
     public function index()
     {
-        $kategori = $this->kategoriModel;
         // $menu = $this->MenuModel->findAll();
         $data = [
             'title' => 'Daftar Menu',
-            'kategori' => $kategori,
             'menu' => $this->menuModel->getMenu()
         ];
         return view('back/admin/menu', $data);
@@ -29,23 +27,107 @@ class Menu extends BaseController
 
     public function detail($slug)
     {
-        $db = \Config\Database::connect();
-        $builder = $db->table('kategorimenu');
-        $builder->select('name');
-        $builder->join('menu', 'menu.id_kategori = kategorimenu.id');
-        $query = $builder->get(null, $slug->menu['id'])->getResult();
-        dd($query);
-        // $m = $this->menuModel->findColumn('id_kategori');
-        // $mk = $this->kategoriModel->where(['id' => $m])->find('name');
+
         $data = [
             'title' => 'Detail Menu',
-            'menu' => $this->menuModel->getMenu($slug),
-            'mk' => $query
+            'menu' => $this->menuModel->getMenu($slug)
         ];
+
+        if (empty($data['menu'])) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('judul komik ' . $slug . ' tidak ditemukan.');
+        }
+
         return view('back/admin/detail-menu', $data);
     }
 
-    public function detailKategori($kategori)
+    public function createMenu()
     {
+        $data = [
+            'title' => 'Form Tambah Menu',
+            'validation' => \Config\Services::validation()
+        ];
+        return view('back/admin/create-menu', $data);
+    }
+
+    public function save()
+    {
+        //validasi input
+        if (!$this->validate([
+            'namaMenu' => [
+                'rules' => 'required|is_unique[menu.namaMenu]',
+                'errors' => [
+                    'required' => 'field harus diisi.',
+                    'is_unique' => 'Nama menu sudah terdaftar'
+                ]
+            ],
+            'id_kategori' => []
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to('/menu/create')->withInput()->with('validation', $validation);
+        }
+        $slug = url_title($this->request->getVar('namaMenu'), '-', true);
+        $this->menuModel->save([
+            'slug' => $slug,
+            'namaMenu' => $this->request->getVar('namaMenu'),
+            'id_kategori' => $this->request->getVar('id_kategori'),
+            'harga' => $this->request->getVar('harga'),
+            'gambar' => $this->request->getVar('gambar'),
+            'id_status' => $this->request->getVar('id_status')
+        ]);
+
+        session()->setFlashdata('pesan', 'Data berhasil ditambahkan.');
+
+        return redirect()->to('/menu');
+    }
+
+    public function delete($id)
+    {
+        $this->menuModel->delete($id);
+        session()->setFlashdata('pesan', 'Data berhasil dihapus.');
+        return redirect()->to('/menu');
+    }
+
+    public function editMenu($slug)
+    {
+        $data = [
+            'title' => 'Form Edit Menu',
+            'validation' => \Config\Services::validation(),
+            'menu' => $this->menuModel->getMenu($slug)
+        ];
+
+        return view('/back/admin/edit-menu', $data);
+    }
+
+    public function update($id)
+    {
+        //validasi input
+        if (!$this->validate([
+            'namaMenu' => [
+                'rules' => 'required|is_unique[menu.namaMenu,id,' . $id . ']',
+                'errors' => [
+                    'required' => 'field harus diisi.',
+                    'is_unique' => 'Nama menu sudah terdaftar'
+                ]
+            ],
+            'id_kategori' => []
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to('/menu/edit/' . $this->request->getVar('slug'))->withInput()->with('validation', $validation);
+        }
+
+        $slug = url_title($this->request->getVar('namaMenu'), '-', true);
+        $this->menuModel->save([
+            'id' => $id,
+            'slug' => $slug,
+            'namaMenu' => $this->request->getVar('namaMenu'),
+            'id_kategori' => $this->request->getVar('id_kategori'),
+            'harga' => $this->request->getVar('harga'),
+            'gambar' => $this->request->getVar('gambar'),
+            'id_status' => $this->request->getVar('id_status')
+        ]);
+
+        session()->setFlashdata('pesan', 'Data berhasil diubah.');
+
+        return redirect()->to('/menu');
     }
 }
