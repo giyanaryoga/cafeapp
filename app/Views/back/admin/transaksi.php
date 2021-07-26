@@ -6,6 +6,10 @@
     <div class="row">
         <div class="col">
             <h1 class="mb-4"><?= $title; ?></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
             <table class="table">
                 <thead>
                     <tr>
@@ -29,6 +33,7 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
+            <?= $pager->links('transaksi', 'pagination'); ?>
         </div>
     </div>
 </div>
