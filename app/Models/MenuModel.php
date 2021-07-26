@@ -13,7 +13,7 @@ class MenuModel extends Model
     public function getMenu($slug = false)
     {
         if ($slug == false) {
-            return $this->findAll();
+            return $this->paginate(3, 'menu');
         }
 
         return $this->where(['slug' => $slug])->first();

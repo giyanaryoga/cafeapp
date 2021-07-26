@@ -1,0 +1,53 @@
+<?= $this->extend('back/template/index'); ?>
+
+<?= $this->section('page-content'); ?>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-10 mx-5">
+            <h1 class="mb-4"><?= $title; ?></h1>
+            <form action="/user/save" method="post">
+                <?= csrf_field(); ?>
+                <div class="row mb-3">
+                    <label for="username" class="col-sm-2 col-form-label">Username:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control <?= ($validation->hasError('username')) ? 'is-invalid' : ''; ?>" id="username" name="username" autofocus value="<?= old('username'); ?>">
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                            <?= $validation->getError('username'); ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="password" class="col-sm-2 col-form-label">Password:</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="password" name="password" value="<?= old('password'); ?>">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="email" class="col-sm-2 col-form-label">Email:</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="email" name="email" value="<?= old('email'); ?>">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="name" class="col-sm-2 col-form-label">Nama:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="name" name="name" value="<?= old('name'); ?>">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="role" class="col-sm-2 col-form-label">Role:</label>
+                    <div class="col-sm-10">
+                        <select class="form-select form-control" aria-label="Default select example" name="id_role">
+                            <option selected>Pilih Role</option>
+                            <option value="1">Aktif</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Tambah</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->
+<?= $this->endSection(); ?>

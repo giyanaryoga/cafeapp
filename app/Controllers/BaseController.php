@@ -56,14 +56,15 @@ class BaseController extends Controller
 		// E.g.: $this->session = \Config\Services::session();
 		session();
 
-		$this->menuModel = new \App\Models\MenuModel();
 		$this->kategoriModel = new \App\Models\KategoriModel();
 		$this->statusMenuModel = new \App\Models\StatusMenuModel();
-		// $this->detailPesanModel = new \App\Models\DetailPesanModel();
-		// $this->pesananModel = new \App\Models\PesananModel();
-		// $this->customerModel = new \App\Models\CustomerModel();
+		$this->menuModel = new \App\Models\MenuModel();
 		$this->roleModel = new \App\Models\RoleModel();
-		// $this->KategoriModel = new \App\Models\KategoriModel();
-		// $this->KategoriModel = new \App\Models\KategoriModel();
+		$this->userModel = new \App\Models\UserModel();
+		// $this->customerModel = new \App\Models\CustomerModel();
+		// $this->detailPesanModel = new \App\Models\DetailPesanModel();
+		// $this->statusPesananModel = new \App\Models\StatusPesananModel();
+		// $this->pesananModel = new \App\Models\PesananModel();
+		// $this->transaksiModel = new \App\Models\TransaksiModel();
 	}
 }

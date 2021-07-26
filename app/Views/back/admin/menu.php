@@ -6,7 +6,13 @@
     <div class="row">
         <div class="col">
             <h1 class="mb-4"><?= $title; ?></h1>
+            <!-- searching menu berdasarkan kategori menggunakan select input-->
+
             <a href="/menu/create" class="btn btn-primary my-1">Tambah data</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
             <?php if (session()->getFlashdata('pesan')) : ?>
                 <div class="alert alert-success" role="alert">
                     <?= session()->getFlashdata('pesan'); ?>
@@ -23,11 +29,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $i = 1; ?>
+                    <?php $i = 1 + (3 * ($current - 1)); ?>
                     <?php foreach ($menu as $m) : ?>
                         <tr>
                             <th scope="row"><?= $i++; ?></th>
-                            <td><img src="/img/<?= $m['gambar']; ?>" alt="" class="foto"></td>
+                            <td><img src="/img/<?= $m['gambar']; ?>" class="foto"></td>
                             <td><?= $m['namaMenu']; ?></td>
                             <td><?= $m['harga']; ?></td>
                             <td><a href="/menu/<?= $m['slug']; ?>" class="btn btn-success">Detail</a></td>
@@ -35,6 +41,7 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
+            <?= $pager->links('menu', 'pagination'); ?>
         </div>
     </div>
 </div>

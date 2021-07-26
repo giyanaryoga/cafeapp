@@ -8,7 +8,6 @@
             <h2 class="mb-4"><?= $title; ?></h2>
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
-
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title"><b><?= $user['username']; ?></b></h5>
@@ -16,8 +15,12 @@
                             <p class="card-text"><b>Nama: </b><?= $user['name']; ?></p>
                             <p class="card-text"><b>Role: </b><?= $user['id_role']; ?></p>
                             <!-- <p class="card-text"><small class="text-muted"></small></p> -->
-                            <a href="" class="btn btn-warning">Edit</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
+                            <a href="/user/edit/<?= $user['id']; ?>" class="btn btn-warning">Edit</a>
+                            <form action="/user/delete/<?= $user['id']; ?>" method="POST" class="d-inline">
+                                <?= csrf_field(); ?>
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin?');">Hapus</button>
+                            </form>
                             <br><br>
                             <a href="/user">Kembali...</a>
                         </div>

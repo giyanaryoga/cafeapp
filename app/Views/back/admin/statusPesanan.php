@@ -10,21 +10,25 @@
                 <thead>
                     <tr>
                         <th scope="col">No.</th>
-                        <th scope="col">Gambar</th>
-                        <th scope="col">Nama Menu</th>
-                        <th scope="col">Harga</th>
+                        <th scope="col">Nama Status</th>
+                        <th scope="col">Deskripsi</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $i = 1; ?>
-                    <?php foreach ($menu as $m) : ?>
+                    <?php foreach ($statusPesanan as $sp) : ?>
                         <tr>
                             <th scope="row"><?= $i++; ?></th>
-                            <td><img src="/img/<?= $m['gambar']; ?>" alt="" class="foto"></td>
-                            <td><?= $m['namaMenu']; ?></td>
-                            <td><?= $m['harga']; ?></td>
-                            <td><a href="/menu/<?= $m['slug']; ?>" class="btn btn-success">Detail</a></td>
+                            <td><?= $sp['name']; ?></td>
+                            <td><?= $sp['deksripsi']; ?></td>
+                            <td><a href="/status/pesanan/edit/<?= $sp['id']; ?>" class="btn btn-warning">Edit</a>
+                                <!-- <form action="/status/pesanan/delete/<?= $sp['id']; ?>" method="POST" class="d-inline">
+                                    <?= csrf_field(); ?>
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin?');">Hapus</button>
+                                </form> -->
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

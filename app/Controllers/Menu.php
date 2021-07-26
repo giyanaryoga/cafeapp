@@ -15,10 +15,13 @@ class Menu extends BaseController
 
     public function index()
     {
+        $currentPage = $this->request->getVar('page_menu') ? $this->request->getVar('page_menu') : 1;
         // $menu = $this->MenuModel->findAll();
         $data = [
             'title' => 'Daftar Menu',
-            'menu' => $this->menuModel->getMenu()
+            'menu' => $this->menuModel->getMenu(),
+            'pager' => $this->menuModel->pager,
+            'current' => $currentPage
         ];
         return view('back/admin/menu', $data);
     }
@@ -81,7 +84,7 @@ class Menu extends BaseController
             //generate nama gambar
             $namaGambar = $fileGambar->getRandomName();
             //pindah ke file public img
-            $fileGambar->move('img');
+            $fileGambar->move('img', $namaGambar);
             //ambil nama file ke name
             // $namaGambar = $fileGambar->getName();
         }
