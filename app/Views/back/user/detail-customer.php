@@ -15,7 +15,7 @@
                             <p class="card-text"><b>No HP: </b><?= $customer['no_hp']; ?></p>
                             <p class="card-text"><b>Meja: </b><?= $customer['id_meja']; ?></p>
                             <br><br>
-                            <a href="/customer">Kembali...</a>
+                            <a href="/user/customer">Kembali...</a>
                         </div>
                     </div>
                 </div>

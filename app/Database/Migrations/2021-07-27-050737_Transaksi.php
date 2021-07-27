@@ -21,6 +21,10 @@ class Transaksi extends Migration
 				'type' => 'INT',
 				'unsigned' => true,
 			],
+			'id_user' => [
+				'type' => 'INT',
+				'unsigned' => true,
+			],
 			'ppn' => [
 				'type' => 'INT',
 				'null' => true
@@ -39,6 +43,7 @@ class Transaksi extends Migration
 		]);
 		$this->forge->addKey('id', true);
 		$this->forge->addForeignKey('id_pesan', 'Pesanan', 'id');
+		$this->forge->addForeignKey('id_user', 'User', 'id');
 		$this->forge->createTable('Transaksi');
 	}
 

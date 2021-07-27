@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col">
             <h1 class="mb-4"><?= $title; ?></h1>
-            <form action="kategori/save" method="post" class="d-inline">
+            <form action="/admin/kategori/save" method="post" class="d-inline">
                 <?= csrf_field(); ?>
                 <div class="row">
                     <label for="name" class="col-sm-2 col-form-label">Nama Kategori:</label>
@@ -35,8 +35,8 @@
                         <tr>
                             <th scope="row"><?= $i++; ?></th>
                             <td><?= $k['name']; ?></td>
-                            <td><a href="/kategori/edit/<?= $k['id']; ?>" class="btn btn-warning">Edit</a>
-                                <form action="/kategori/delete/<?= $k['id']; ?>" method="POST" class="d-inline">
+                            <td><a href="/admin/kategori/edit/<?= $k['id']; ?>" class="btn btn-warning">Edit</a>
+                                <form action="/admin/kategori/delete/<?= $k['id']; ?>" method="POST" class="d-inline">
                                     <?= csrf_field(); ?>
                                     <input type="hidden" name="_method" value="DELETE">
                                     <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin?');">Hapus</button>

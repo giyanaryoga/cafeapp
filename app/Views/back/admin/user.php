@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col">
             <h1 class="mb-4"><?= $title; ?></h1>
-            <a href="/user/create" class="btn btn-primary my-1">Tambah data</a>
+            <a href="/admin/user/create" class="btn btn-primary my-1">Tambah data</a>
         </div>
     </div>
     <div class="row">
@@ -29,7 +29,7 @@
                             <td><?= $u['username']; ?></td>
                             <td><?= $u['name']; ?></td>
                             <td><?= $u['email']; ?></td>
-                            <td><a href="/user/<?= $u['username']; ?>" class="btn btn-success">Detail</a></td>
+                            <td><a href="/admin/user/<?= $u['username']; ?>" class="btn btn-success">Detail</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

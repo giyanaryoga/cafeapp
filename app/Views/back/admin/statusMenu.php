@@ -22,7 +22,7 @@
                             <th scope="row"><?= $i++; ?></th>
                             <td><?= $sm['name']; ?></td>
                             <td><?= $sm['deskripsi']; ?></td>
-                            <td><a href="/status/menu/edit/<?= $sm['id']; ?>" class="btn btn-warning">Edit</a>
+                            <td><a href="/admin/status/menu/edit/<?= $sm['id']; ?>" class="btn btn-warning">Edit</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

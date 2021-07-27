@@ -27,7 +27,7 @@
                             <th scope="row"><?= $i++; ?></th>
                             <td><?= $trx['']; ?></td>
                             <td><?= $trx['']; ?></td>
-                            <td><a href="/transaksi/edit/<?= $trx['id']; ?>" class="btn btn-warning">Edit</a>
+                            <td><a href="/admin/transaksi/edit/<?= $trx['id']; ?>" class="btn btn-warning">Edit</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

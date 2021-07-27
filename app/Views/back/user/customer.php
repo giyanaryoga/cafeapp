@@ -24,7 +24,7 @@
                             <td><?= $cst['email']; ?></td>
                             <td><?= $cst['name']; ?></td>
                             <td><?= $cst['no_hp']; ?></td>
-                            <td><a href="/customer/<?= $cst['id']; ?>" class="btn btn-success">Detail</a></td>
+                            <td><a href="/user/customer/<?= $cst['id']; ?>" class="btn btn-success">Detail</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

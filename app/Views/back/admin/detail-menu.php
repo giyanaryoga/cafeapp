@@ -18,14 +18,14 @@
                             <p class="card-text"><b>Harga: </b><?= $menu['harga']; ?></p>
                             <p class="card-text"><b>Status: </b><?= $menu['id_status']; ?></p>
                             <!-- <p class="card-text"><small class="text-muted"></small></p> -->
-                            <a href="/menu/edit/<?= $menu['slug']; ?>" class="btn btn-warning">Edit</a>
-                            <form action="/menu/delete/<?= $menu['id']; ?>" method="POST" class="d-inline">
+                            <a href="/admin/menu/edit/<?= $menu['slug']; ?>" class="btn btn-warning">Edit</a>
+                            <form action="/admin/menu/delete/<?= $menu['id']; ?>" method="POST" class="d-inline">
                                 <?= csrf_field(); ?>
                                 <input type="hidden" name="_method" value="DELETE">
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin?');">Hapus</button>
                             </form>
                             <br><br>
-                            <a href="/menu">Kembali...</a>
+                            <a href="/admin/menu">Kembali...</a>
                         </div>
                     </div>
                 </div>

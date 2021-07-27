@@ -35,33 +35,30 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 //Frontend
 $routes->get('/', 'Home::index');
+
 //Role
-$routes->get('/role', 'Role::index');
+$routes->get('/admin/role', 'Role::index');
 
 //User
 $routes->get('/user', 'User::index');
-
+$routes->get('/admin/user', 'User::index');
 
 //Kategori Menu
-$routes->get('/kategori', 'Kategori::index');
+$routes->get('/admin/kategori', 'Kategori::index');
 
 //StatusMenu
-$routes->get('/status/menu', 'StatusMenu::index');
-
+$routes->get('/admin/status/menu', 'StatusMenu::index');
 
 //StatusPesanan
-$routes->get('/status/pesanan', 'StatusPesanan::index');
-
+$routes->get('/admin/status/pesanan', 'StatusPesanan::index');
 
 //Menu
-$routes->get('/menu', 'Menu::index');
-$routes->get('/menu/create', 'Menu::createMenu');
-$routes->get('/menu/edit/(:segment)', 'Menu::editMenu/$1');
-$routes->post('/menu/save', 'Menu::save');
-$routes->delete('/menu/delete/(:num)', 'Menu::delete/$1');
-$routes->get('/menu/(:any)', 'Menu::detail/$1');
-
-
+$routes->get('/admin/menu', 'Menu::index');
+$routes->get('/admin/menu/create', 'Menu::createMenu');
+$routes->get('/admin/menu/edit/(:segment)', 'Menu::editMenu/$1');
+$routes->post('/admin/menu/save', 'Menu::save');
+$routes->delete('/admin/menu/delete/(:num)', 'Menu::delete/$1');
+$routes->get('/admin/menu/(:any)', 'Menu::detail/$1');
 
 /*
  * --------------------------------------------------------------------

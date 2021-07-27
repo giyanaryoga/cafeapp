@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col">
             <h1 class="mb-4"><?= $title; ?></h1>
-            <form action="role/save" method="post" class="d-inline">
+            <form action="/adminrole/save" method="post" class="d-inline">
                 <?= csrf_field(); ?>
                 <div class="row">
                     <label for="name_role" class="col-sm-2 col-form-label">Nama Role:</label>
@@ -35,8 +35,8 @@
                         <tr>
                             <th scope="row"><?= $i++; ?></th>
                             <td><?= $r['name_role']; ?></td>
-                            <td><a href="/role/edit/<?= $r['id']; ?>" class="btn btn-warning">Edit</a>
-                                <form action="/role/delete/<?= $r['id']; ?>" method="POST" class="d-inline">
+                            <td><a href="/admin/role/edit/<?= $r['id']; ?>" class="btn btn-warning">Edit</a>
+                                <form action="/admin/role/delete/<?= $r['id']; ?>" method="POST" class="d-inline">
                                     <?= csrf_field(); ?>
                                     <input type="hidden" name="_method" value="DELETE">
                                     <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin?');">Hapus</button>

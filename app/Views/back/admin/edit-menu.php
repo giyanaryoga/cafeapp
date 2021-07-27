@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-10 mx-5">
             <h1 class="mb-4"><?= $title; ?></h1>
-            <form action="/menu/update/<?= $menu['id']; ?>" method="post" enctype="multipart/form-data">
+            <form action="/admin/menu/update/<?= $menu['id']; ?>" method="post" enctype="multipart/form-data">
                 <?= csrf_field(); ?>
                 <input type="hidden" name="slug" value="<?= $menu['slug']; ?>">
                 <input type="hidden" name="gambarLama" value="<?= $menu['gambar']; ?>">

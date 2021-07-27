@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-10 mx-5">
             <h1 class="mb-4"><?= $title; ?></h1>
-            <form action="/meja/update/<?= $meja['id']; ?>" method="post">
+            <form action="/admin/meja/update/<?= $meja['id']; ?>" method="post">
                 <?= csrf_field(); ?>
                 <div class="row mb-3">
                     <label for="nomor" class="col-sm-2 col-form-label">Nomor:</label>

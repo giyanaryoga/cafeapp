@@ -10,21 +10,19 @@
                 <thead>
                     <tr>
                         <th scope="col">No.</th>
-                        <th scope="col">Gambar</th>
-                        <th scope="col">Nama Menu</th>
-                        <th scope="col">Harga</th>
+                        <th scope="col">Customer</th>
+                        <th scope="col">Jumlah harga</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $i = 1; ?>
-                    <?php foreach ($menu as $m) : ?>
+                    <?php foreach ($pesanan as $p) : ?>
                         <tr>
                             <th scope="row"><?= $i++; ?></th>
-                            <td><img src="/img/<?= $m['gambar']; ?>" alt="" class="foto"></td>
-                            <td><?= $m['namaMenu']; ?></td>
-                            <td><?= $m['harga']; ?></td>
-                            <td><a href="/menu/<?= $m['slug']; ?>" class="btn btn-success">Detail</a></td>
+                            <td><?= $p['id_customer']; ?></td>
+                            <td><?= $p['jumlah_harga']; ?></td>
+                            <td><a href="/user/pesanan/<?= $p['id']; ?>" class="btn btn-success">Detail</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
