@@ -9,6 +9,6 @@ class Home extends BaseController
 		$data = [
 			'title' => 'Gya Cafe'
 		];
-		return view('welcome_message', $data);
+		return view('/front/index', $data);
 	}
 }

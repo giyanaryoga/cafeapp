@@ -7,7 +7,17 @@
         <div class="col">
             <h1 class="mb-4"><?= $title; ?></h1>
             <!-- searching menu berdasarkan kategori menggunakan select input-->
-
+            <div class="input-group">
+                <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+                    <option selected>Cari berdasarkan kategori...</option>
+                    <option value="1">Coffee</option>
+                    <option value="2">Noncoffee</option>
+                    <option value="3">Food</option>
+                </select>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button">Cari</button>
+                </div>
+            </div>
             <a href="/menu/create" class="btn btn-primary my-1">Tambah data</a>
         </div>
     </div>

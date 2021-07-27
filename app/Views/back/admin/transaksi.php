@@ -6,6 +6,7 @@
     <div class="row">
         <div class="col">
             <h1 class="mb-4"><?= $title; ?></h1>
+            <!-- Input searching from tanggal to tanggal -->
         </div>
     </div>
     <div class="row">
@@ -14,7 +15,6 @@
                 <thead>
                     <tr>
                         <th scope="col">No.</th>
-                        <th scope="col">Gambar</th>
                         <th scope="col">Nama Menu</th>
                         <th scope="col">Harga</th>
                         <th scope="col">Action</th>
@@ -22,13 +22,13 @@
                 </thead>
                 <tbody>
                     <?php $i = 1; ?>
-                    <?php foreach ($menu as $m) : ?>
+                    <?php foreach ($transaksi as $trx) : ?>
                         <tr>
                             <th scope="row"><?= $i++; ?></th>
-                            <td><img src="/img/<?= $m['gambar']; ?>" alt="" class="foto"></td>
-                            <td><?= $m['namaMenu']; ?></td>
-                            <td><?= $m['harga']; ?></td>
-                            <td><a href="/menu/<?= $m['slug']; ?>" class="btn btn-success">Detail</a></td>
+                            <td><?= $trx['']; ?></td>
+                            <td><?= $trx['']; ?></td>
+                            <td><a href="/transaksi/edit/<?= $trx['id']; ?>" class="btn btn-warning">Edit</a>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

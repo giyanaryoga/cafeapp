@@ -10,20 +10,21 @@
                 <thead>
                     <tr>
                         <th scope="col">No.</th>
-                        <th scope="col">Nama Status</th>
-                        <th scope="col">Deskripsi</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">No HP</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $i = 1; ?>
-                    <?php foreach ($statusMenu as $sm) : ?>
+                    <?php foreach ($customer as $cst) : ?>
                         <tr>
                             <th scope="row"><?= $i++; ?></th>
-                            <td><?= $sm['name']; ?></td>
-                            <td><?= $sm['deskripsi']; ?></td>
-                            <td><a href="/status/menu/edit/<?= $sm['id']; ?>" class="btn btn-warning">Edit</a>
-                            </td>
+                            <td><?= $cst['email']; ?></td>
+                            <td><?= $cst['name']; ?></td>
+                            <td><?= $cst['no_hp']; ?></td>
+                            <td><a href="/customer/<?= $cst['id']; ?>" class="btn btn-success">Detail</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

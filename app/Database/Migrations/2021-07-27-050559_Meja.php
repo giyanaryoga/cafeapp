@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Customer extends Migration
+class Meja extends Migration
 {
 	public function up()
 	{
@@ -14,17 +14,12 @@ class Customer extends Migration
 				'unsigned' => true,
 				'auto_increment' => true
 			],
-			'email' => [
-				'type' => 'VARCHAR',
-				'constraint' => 255
+			'nomor' => [
+				'type' => 'INT',
 			],
-			'name' => [
+			'deskripsi' => [
 				'type' => 'VARCHAR',
-				'constraint' => 255
-			],
-			'no_hp' => [
-				'type' => 'VARCHAR',
-				'constraint' => 15,
+				'constraint' => 255,
 				'null' => true
 			],
 			'created_at' => [
@@ -34,19 +29,14 @@ class Customer extends Migration
 			'updated_at' => [
 				'type' => 'DATETIME',
 				'null' => true
-			],
-			'id_kursi' => [
-				'type' => 'INT',
-				'unsigned' => true,
 			]
 		]);
 		$this->forge->addKey('id', true, true);
-		$this->forge->addForeignKey('id_kursi', 'Kursi', 'id');
-		$this->forge->createTable('Customer');
+		$this->forge->createTable('Meja');
 	}
 
 	public function down()
 	{
-		$this->forge->dropTable('Customer');
+		$this->forge->dropTable('Meja');
 	}
 }

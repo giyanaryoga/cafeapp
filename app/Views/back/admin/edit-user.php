@@ -44,7 +44,7 @@
                         </select>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Tambah</button>
+                <button type="submit" class="btn btn-primary">Edit</button>
             </form>
         </div>
     </div>
