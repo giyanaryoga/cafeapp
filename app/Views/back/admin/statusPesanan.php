@@ -22,7 +22,7 @@
                             <th scope="row"><?= $i++; ?></th>
                             <td><?= $sp['name']; ?></td>
                             <td><?= $sp['deksripsi']; ?></td>
-                            <td><a href="/admin/status/pesanan/edit/<?= $sp['id']; ?>" class="btn btn-warning">Edit</a>
+                            <td><a href="/admin/status/pesanan/edit/<?= $sp['id']; ?>" class="btn btn-warning col-lg-2">Edit</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

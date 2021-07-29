@@ -14,7 +14,7 @@
     <!-- Custom styles for this template-->
     <link href="<?= base_url(); ?>/css/sb-admin-2.min.css" rel="stylesheet">
     <!-- My CSS -->
-    <link href="<?= base_url(); ?>/css/style-back.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>/css/style.css" rel="stylesheet">
 </head>
 
 <body id="page-top">

@@ -14,7 +14,7 @@
                         <input type="name" class="form-control" id="name" name="name" value="<?= (old('name')) ? old('name') : $kategori['name'] ?>">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Edit</button>
+                <button type="submit" class="btn btn-primary col-lg-2">Edit</button>
             </form>
         </div>
     </div>

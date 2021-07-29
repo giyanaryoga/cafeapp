@@ -35,11 +35,11 @@
                         <tr>
                             <th scope="row"><?= $i++; ?></th>
                             <td><?= $r['name_role']; ?></td>
-                            <td><a href="/admin/role/edit/<?= $r['id']; ?>" class="btn btn-warning">Edit</a>
+                            <td><a href="/admin/role/edit/<?= $r['id']; ?>" class="btn btn-warning col-lg-2">Edit</a>
                                 <form action="/admin/role/delete/<?= $r['id']; ?>" method="POST" class="d-inline">
                                     <?= csrf_field(); ?>
                                     <input type="hidden" name="_method" value="DELETE">
-                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin?');">Hapus</button>
+                                    <button type="submit" class="btn btn-danger col-lg-2" onclick="return confirm('Apakah anda yakin?');">Hapus</button>
                                 </form>
                             </td>
                         </tr>

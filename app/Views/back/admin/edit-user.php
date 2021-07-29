@@ -44,7 +44,7 @@
                         </select>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Edit</button>
+                <button type="submit" class="btn btn-primary col-lg-2">Edit</button>
             </form>
         </div>
     </div>

@@ -35,6 +35,7 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 //Frontend
 $routes->get('/', 'Home::index');
+$routes->get('/order', 'Home::order');
 
 //Role
 $routes->get('/admin/role', 'Role::index');

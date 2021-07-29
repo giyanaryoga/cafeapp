@@ -18,7 +18,7 @@
                     <button class="btn btn-outline-secondary" type="button">Cari</button>
                 </div>
             </div>
-            <a href="/admin/menu/create" class="btn btn-primary my-1">Tambah data</a>
+            <a href="/admin/menu/create" class="btn btn-primary my-1 col-lg-2">Tambah data</a>
         </div>
     </div>
     <div class="row">
@@ -46,7 +46,7 @@
                             <td><img src="/img/<?= $m['gambar']; ?>" class="foto"></td>
                             <td><?= $m['namaMenu']; ?></td>
                             <td><?= $m['harga']; ?></td>
-                            <td><a href="/admin/menu/<?= $m['slug']; ?>" class="btn btn-success">Detail</a></td>
+                            <td><a href="/admin/menu/<?= $m['slug']; ?>" class="btn btn-success col-lg-2">Detail</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

@@ -5,3 +5,7 @@
 .table > tbody > tr > * {
     vertical-align: middle;
 }
+
+.foto-menu {
+    height: 50%;
+  }

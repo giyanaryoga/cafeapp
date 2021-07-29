@@ -14,7 +14,7 @@
                         <input type="name_role" class="form-control" id="name_role" name="name_role" value="<?= (old('name_role')) ? old('name_role') : $role['name_role'] ?>">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Edit</button>
+                <button type="submit" class="btn btn-primary col-lg-2">Edit</button>
             </form>
         </div>
     </div>

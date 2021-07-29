@@ -20,7 +20,7 @@
                         <input type="deskripsi" class="form-control" id="deskripsi" name="deskripsi" value="<?= (old('deskripsi')) ? old('deskripsi') : $user['deskripsi'] ?>">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Edit</button>
+                <button type="submit" class="btn btn-primary col-lg-2">Edit</button>
             </form>
         </div>
     </div>
