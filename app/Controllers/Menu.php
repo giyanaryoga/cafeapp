@@ -43,9 +43,13 @@ class Menu extends BaseController
 
     public function createMenu()
     {
+        $kategori = $this->kategoriModel->findAll();
+        $statusMenu = $this->statusMenuModel->findAll();
         $data = [
             'title' => 'Form Tambah Menu',
-            'validation' => \Config\Services::validation()
+            'validation' => \Config\Services::validation(),
+            'kategori' => $kategori,
+            'statusMenu' => $statusMenu
         ];
         return view('back/admin/create-menu', $data);
     }
@@ -68,13 +72,35 @@ class Menu extends BaseController
                     'is_image' => 'Yang dipilih bukan gambar',
                     'mine_in' => 'Yang dipilih bukan gambar'
                 ]
+            ],
+            'kategori' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong dan harap dipilih'
+                ]
+            ],
+            'status' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong dan harap dipilih'
+                ]
             ]
         ])) {
-            // $validation = \Config\Services::validation();
-            // return redirect()->to('/menu/create')->withInput()->with('validation', $validation);
             return redirect()->to('/menu/create')->withInput();
         }
 
+        // $selected_kategori = null;
+
+        // if (isset($_POST['kategori'])) {
+        //     $selected_kategori = $_POST['kategori'];
+        // }
+        $selected_kategori = $_POST['kategori'];
+        // $selected_status = null;
+
+        // if (isset($_POST['status'])) {
+        //     $selected_status = $_POST['status'];
+        // }
+        $selected_status = $_POST['status'];
         //ambil gambar
         $fileGambar = $this->request->getFile('gambar');
         //jika tidak ada file gambar yang diupload
@@ -93,10 +119,10 @@ class Menu extends BaseController
         $this->menuModel->save([
             'slug' => $slug,
             'namaMenu' => $this->request->getVar('namaMenu'),
-            'id_kategori' => $this->request->getVar('id_kategori'),
+            'id_kategori' => $selected_kategori,
             'harga' => $this->request->getVar('harga'),
             'gambar' => $namaGambar,
-            'id_status' => $this->request->getVar('id_status')
+            'id_status' => $selected_status
         ]);
 
         session()->setFlashdata('pesan', 'Data berhasil ditambahkan.');
@@ -120,10 +146,14 @@ class Menu extends BaseController
 
     public function editMenu($slug)
     {
+        $kategori = $this->kategoriModel->findAll();
+        $statusMenu = $this->statusMenuModel->findAll();
         $data = [
             'title' => 'Form Edit Menu',
             'validation' => \Config\Services::validation(),
-            'menu' => $this->menuModel->getMenu($slug)
+            'menu' => $this->menuModel->getMenu($slug),
+            'kategori' => $kategori,
+            'statusMenu' => $statusMenu
         ];
 
         return view('/back/admin/edit-menu', $data);
@@ -147,9 +177,32 @@ class Menu extends BaseController
                     'is_image' => 'Yang dipilih bukan gambar',
                     'mine_in' => 'Yang dipilih bukan gambar'
                 ]
+            ],
+            'kategori' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong dan harap dipilih'
+                ]
+            ],
+            'status' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong dan harap dipilih'
+                ]
             ]
         ])) {
             return redirect()->to('/menu/edit/' . $this->request->getVar('slug'))->withInput();
+        }
+
+        $selected_kategori = $this->kategoriModel->find($id);
+
+        if (isset($_POST['kategori'])) {
+            $selected_kategori = $_POST['kategori'];
+        }
+        $selected_status = $this->statusMenuModel->find($id);
+
+        if (isset($_POST['status'])) {
+            $selected_status = $_POST['status'];
         }
 
         $fileGambar = $this->request->getFile('gambar');
@@ -177,10 +230,10 @@ class Menu extends BaseController
             'id' => $id,
             'slug' => $slug,
             'namaMenu' => $this->request->getVar('namaMenu'),
-            'id_kategori' => $this->request->getVar('id_kategori'),
+            'id_kategori' => $selected_kategori,
             'harga' => $this->request->getVar('harga'),
             'gambar' => $namaGambar,
-            'id_status' => $this->request->getVar('id_status')
+            'id_status' => $selected_status
         ]);
 
         session()->setFlashdata('pesan', 'Data berhasil diubah.');

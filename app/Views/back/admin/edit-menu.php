@@ -23,9 +23,11 @@
                     <label for="kategori" class="col-sm-2 col-form-label">Kategori:</label>
                     <div class="col-sm-10">
                         <select class="form-select form-control" aria-label="Default select example" name="id_kategori">
-                            <option value="<?= $menu['id_kategori']; ?>" selected><?= $menu['id_kategori']; ?> - </option>
-                            <option value="1">Food</option>
-                            <option value="2">Coffee</option>
+                            <option value="">Pilih Kategori</option>
+                            <?php $i = 1; ?>
+                            <?php foreach ($kategori as $kategori) : ?>
+                                <option value="<?= $kategori['id']; ?>"><?= $kategori['name']; ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                 </div>
@@ -54,8 +56,11 @@
                     <label for="status" class="col-sm-2 col-form-label">Status:</label>
                     <div class="col-sm-10">
                         <select class="form-select form-control" aria-label="Default select example" name="id_status">
-                            <option value="<?= $menu['id_status']; ?>" selected><?= $menu['id_status']; ?> - </option>
-                            <option value="1">Aktif</option>
+                            <option value="">Pilih Status</option>
+                            <?php $i = 1; ?>
+                            <?php foreach ($statusMenu as $status) : ?>
+                                <option value="<?= $status['id']; ?>" <?php ($menu['id_status'] == $status['id'] ? 'selected' : '') ?>><?= $status['name']; ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                 </div>

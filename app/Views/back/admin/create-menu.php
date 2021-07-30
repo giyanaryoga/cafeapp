@@ -20,10 +20,12 @@
                 <div class="row mb-3">
                     <label for="kategori" class="col-sm-2 col-form-label">Kategori:</label>
                     <div class="col-sm-10">
-                        <select class="form-select form-control" aria-label="Default select example" name="id_kategori">
-                            <option selected>Pilih Kategori</option>
-                            <option value="1">Food</option>
-                            <option value="2">Coffee</option>
+                        <select class="form-select form-control" aria-label="Default select example" name="kategori">
+                            <option value="">Pilih Kategori</option>
+                            <?php $i = 1; ?>
+                            <?php foreach ($kategori as $kategori) : ?>
+                                <option value="<?= $kategori['id']; ?>"><?= $kategori['name']; ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                 </div>
@@ -51,9 +53,12 @@
                 <div class="row mb-3">
                     <label for="status" class="col-sm-2 col-form-label">Status:</label>
                     <div class="col-sm-10">
-                        <select class="form-select form-control" aria-label="Default select example" name="id_status">
-                            <option selected>Pilih Status</option>
-                            <option value="1">Aktif</option>
+                        <select class="form-select form-control" aria-label="Default select example" name="status">
+                            <option value="">Pilih Status</option>
+                            <?php $i = 1; ?>
+                            <?php foreach ($statusMenu as $status) : ?>
+                                <option value="<?= $status['id']; ?>"><?= $status['name']; ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                 </div>

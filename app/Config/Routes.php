@@ -43,6 +43,8 @@ $routes->get('/admin/role', 'Role::index');
 //User
 $routes->get('/user', 'User::index');
 $routes->get('/admin/user', 'User::index');
+$routes->get('/admin/user/register', 'User::register');
+$routes->post('/admin/user/save', 'User::save');
 
 //Kategori Menu
 $routes->get('/admin/kategori', 'Kategori::index');

@@ -46,7 +46,7 @@
                             <td><img src="/img/<?= $m['gambar']; ?>" class="foto"></td>
                             <td><?= $m['namaMenu']; ?></td>
                             <td><?= $m['harga']; ?></td>
-                            <td><a href="/admin/menu/<?= $m['slug']; ?>" class="btn btn-success col-lg-2">Detail</a></td>
+                            <td><a href="/admin/menu/<?= $m['slug']; ?>" class="btn btn-success">Detail</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
