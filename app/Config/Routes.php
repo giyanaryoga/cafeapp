@@ -41,10 +41,16 @@ $routes->get('/order', 'Home::order');
 $routes->get('/admin/role', 'Role::index');
 
 //User
+$routes->get('/login', 'Auth::index');
 $routes->get('/user', 'User::index');
+
 $routes->get('/admin/user', 'User::index');
 $routes->get('/admin/user/register', 'User::register');
 $routes->post('/admin/user/save', 'User::save');
+$routes->get('/admin/user/edit/(:segment)', 'User::editUser/$1');
+$routes->put('/admin/user/update/(:num)', 'User::update/$1');
+$routes->get('/admin/user/(:any)', 'User::detail/$1');
+$routes->delete('/admin/user/delete/(:num)', 'User::delete/$1');
 
 //Kategori Menu
 $routes->get('/admin/kategori', 'Kategori::index');

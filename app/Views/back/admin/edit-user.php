@@ -18,9 +18,9 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="password" class="col-sm-2 col-form-label">Password:</label>
+                    <!-- <label for="password" class="col-sm-2 col-form-label">Password:</label> -->
                     <div class="col-sm-10">
-                        <input type="password" class="form-control" id="password" name="password" value="<?= (old('password')) ? old('password') : $user['password'] ?>">
+                        <input type="hidden" class="form-control" id="password" name="password" value="<?= (old('password')) ? old('password') : $user['password'] ?>">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -38,9 +38,12 @@
                 <div class="row mb-3">
                     <label for="role" class="col-sm-2 col-form-label">Role:</label>
                     <div class="col-sm-10">
-                        <select class="form-select form-control" aria-label="Default select example" name="id_role">
-                            <option selected>Pilih Role</option>
-                            <option value="1">Aktif</option>
+                        <select class="form-select form-control <?= ($validation->hasError('username')) ? 'is-invalid' : ''; ?>" aria-label="Default select example" name="role">
+                            <option value="">Pilih Role</option>
+                            <?php $i = 1; ?>
+                            <?php foreach ($role as $role) : ?>
+                                <option value="<?= $role['id'] ?>" <?= ($user['id_role'] == $role['id']) ? 'selected' : '' ?>><?= $role['name_role']; ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                 </div>

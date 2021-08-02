@@ -22,11 +22,11 @@
                 <div class="row mb-3">
                     <label for="kategori" class="col-sm-2 col-form-label">Kategori:</label>
                     <div class="col-sm-10">
-                        <select class="form-select form-control" aria-label="Default select example" name="id_kategori">
+                        <select class="form-select form-control" aria-label="Default select example" name="kategori">
                             <option value="">Pilih Kategori</option>
                             <?php $i = 1; ?>
                             <?php foreach ($kategori as $kategori) : ?>
-                                <option value="<?= $kategori['id']; ?>"><?= $kategori['name']; ?></option>
+                                <option value="<?= $kategori['id']; ?>" <?= ($menu['id_kategori'] === $kategori['id']) ? 'selected' : '' ?>><?= $kategori['name']; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -59,7 +59,7 @@
                             <option value="">Pilih Status</option>
                             <?php $i = 1; ?>
                             <?php foreach ($statusMenu as $status) : ?>
-                                <option value="<?= $status['id']; ?>" <?php ($menu['id_status'] == $status['id'] ? 'selected' : '') ?>><?= $status['name']; ?></option>
+                                <option value="<?= $status['id']; ?>" <?= ($menu['id_status'] === $status['id']) ? 'selected' : '' ?>><?= $status['name']; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>

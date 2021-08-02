@@ -54,7 +54,7 @@
                             <option value="">Pilih Role</option>
                             <?php $i = 1; ?>
                             <?php foreach ($role as $role) : ?>
-                                <option value="<?= $role['id'] ?>"><?= $role['name_role']; ?></option>
+                                <option value="<?= $role['id'] ?>" <?= (old('role') == $role['id']) ? 'selected' : '' ?>><?= $role['name_role']; ?></option>
                             <?php endforeach; ?>
                         </select>
                         <div id="validationServer03Feedback" class="invalid-feedback">

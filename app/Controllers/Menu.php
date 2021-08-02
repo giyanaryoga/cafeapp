@@ -6,12 +6,7 @@ class Menu extends BaseController
 {
     protected $menuModel;
     protected $kategoriModel;
-
-    // public function __construct()
-    // {
-    //     $this->MenuModel = new MenuModel();
-    //     $this->KategoriModel = new KategoriModel();
-    // }
+    protected $statusMenuModel;
 
     public function index()
     {
@@ -86,7 +81,7 @@ class Menu extends BaseController
                 ]
             ]
         ])) {
-            return redirect()->to('/menu/create')->withInput();
+            return redirect()->to('/admin/menu/create')->withInput();
         }
 
         // $selected_kategori = null;
@@ -101,6 +96,7 @@ class Menu extends BaseController
         //     $selected_status = $_POST['status'];
         // }
         $selected_status = $_POST['status'];
+
         //ambil gambar
         $fileGambar = $this->request->getFile('gambar');
         //jika tidak ada file gambar yang diupload
@@ -111,8 +107,6 @@ class Menu extends BaseController
             $namaGambar = $fileGambar->getRandomName();
             //pindah ke file public img
             $fileGambar->move('img', $namaGambar);
-            //ambil nama file ke name
-            // $namaGambar = $fileGambar->getName();
         }
 
         $slug = url_title($this->request->getVar('namaMenu'), '-', true);
@@ -127,7 +121,7 @@ class Menu extends BaseController
 
         session()->setFlashdata('pesan', 'Data berhasil ditambahkan.');
 
-        return redirect()->to('/menu');
+        return redirect()->to('/admin/menu');
     }
 
     public function delete($id)
@@ -141,13 +135,14 @@ class Menu extends BaseController
 
         $this->menuModel->delete($id);
         session()->setFlashdata('pesan', 'Data berhasil dihapus.');
-        return redirect()->to('/menu');
+        return redirect()->to('/admin/menu');
     }
 
     public function editMenu($slug)
     {
         $kategori = $this->kategoriModel->findAll();
         $statusMenu = $this->statusMenuModel->findAll();
+
         $data = [
             'title' => 'Form Edit Menu',
             'validation' => \Config\Services::validation(),
@@ -191,19 +186,21 @@ class Menu extends BaseController
                 ]
             ]
         ])) {
-            return redirect()->to('/menu/edit/' . $this->request->getVar('slug'))->withInput();
+            return redirect()->to('/admin/menu/edit/' . $this->request->getVar('slug'))->withInput();
         }
 
-        $selected_kategori = $this->kategoriModel->find($id);
+        // $selected_kategori = $this->kategoriModel->find($id);
 
-        if (isset($_POST['kategori'])) {
-            $selected_kategori = $_POST['kategori'];
-        }
-        $selected_status = $this->statusMenuModel->find($id);
+        // if (isset($_POST['kategori'])) {
+        //     $selected_kategori = $_POST['kategori'];
+        // }
+        $selected_kategori = $_POST['kategori'];
+        $selected_status = $_POST['status'];
+        // $selected_status = $this->statusMenuModel->find($id);
 
-        if (isset($_POST['status'])) {
-            $selected_status = $_POST['status'];
-        }
+        // if (isset($_POST['status'])) {
+        //     $selected_status = $_POST['status'];
+        // }
 
         $fileGambar = $this->request->getFile('gambar');
         $fileGambarLama = $this->request->getVar('gambarLama');
@@ -238,6 +235,6 @@ class Menu extends BaseController
 
         session()->setFlashdata('pesan', 'Data berhasil diubah.');
 
-        return redirect()->to('/menu');
+        return redirect()->to('/admin/menu');
     }
 }
