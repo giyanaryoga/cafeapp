@@ -13,7 +13,7 @@
                             <h6 class="card-title"><b>Username: </b><?= $user['username']; ?></h6>
                             <p class="card-text"><b>Email: </b><?= $user['email']; ?></p>
                             <p class="card-text"><b>Nama: </b><?= $user['name']; ?></p>
-                            <p class="card-text"><b>Role: </b><?= $user['id_role']; ?></p>
+                            <p class="card-text"><b>Role: </b><?= $role['nameRole']; ?></p>
                             <a href="/admin/user/edit/<?= $user['username']; ?>" class="btn btn-warning">Edit</a>
                             <form action="/admin/user/delete/<?= $user['id']; ?>" method="POST" class="d-inline">
                                 <?= csrf_field(); ?>
