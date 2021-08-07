@@ -21,7 +21,6 @@ class User extends BaseController
 
     public function detail($username)
     {
-        $role = $this->roleModel->findColumn('name');
         $user = $this->userModel->getUser($username);
         $data = [
             'title' => 'Detail User',
