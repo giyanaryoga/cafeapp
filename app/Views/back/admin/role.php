@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col">
             <h1 class="mb-4"><?= $title; ?></h1>
-            <form action="/adminrole/save" method="post" class="d-inline">
+            <form action="/admin/role/save" method="post" class="d-inline">
                 <?= csrf_field(); ?>
                 <div class="row">
                     <label for="name_role" class="col-sm-2 col-form-label">Nama Role:</label>

@@ -5,21 +5,21 @@
 <div class="container px-4 px-lg-5 pt-4">
     <!-- Heading Row-->
     <div class="row gx-4 gx-lg-5 align-items-center my-5">
-        <div class="col-lg-8"><img class="img-fluid rounded mb-4 mb-lg-0" src="https://dummyimage.com/900x400/dee2e6/6c757d.jpg" alt="..." />
+        <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-2" src="<?= base_url(); ?>/img/cover.jpg" alt="..." />
         </div>
-        <div class="col-lg-4">
-            <h1 class="font-weight-light">Business Name or Tagline</h1>
-            <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!</p>
-            <a class="btn btn-primary" href="#!">Call to Action!</a>
+        <div class="col-lg-5">
+            <h1 class="font-weight-light text-md-center">Gya Cafe And Creative Space</h1>
+            <p class=" text-center">Selamat datang di Gya Cafe And Creative Space, silahkan klik tombol Pesan Sekarang! untuk melakukan pemesanan.</p>
+            <a class="btn btn-primary m-0 my-2 start-50" href="/order">Pesan Sekarang!</a>
         </div>
     </div>
     <!-- Call to Action-->
-    <div class="card text-white bg-secondary my-5 py-4 text-center">
+    <div class="card text-white bg-secondary my-3 py-2 text-center">
         <div class="card-body">
-            <p class="text-white m-0">This call to action card is a great place to showcase some important information or display a clever tagline!</p>
+            <p class="text-white m-0"><b><i>RAPID, TACTICAL, QUICK</i></b></p>
         </div>
     </div>
-    <!-- Content Row-->
+    <!-- Content Row -->
     <div class="row gx-4 gx-lg-5">
         <div class="col-md-4 mb-5">
             <div class="card h-100">

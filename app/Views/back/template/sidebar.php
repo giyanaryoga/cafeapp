@@ -8,9 +8,12 @@
     </a>
     <!-- Divider -->
     <hr class="sidebar-divider">
+
+
+    <!-- Menu saat role Admin -->
     <!-- Heading -->
     <div class="sidebar-heading">
-        User Profile
+        Menu Admin
     </div>
     <!-- Nav Item - My Profile -->
     <li class="nav-item">
@@ -24,6 +27,29 @@
             <i class="fas fa-user-edit"></i>
             <span>Edit Profile</span></a>
     </li>
+
+
+    <!-- Menu saat role User -->
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Menu User
+    </div>
+    <!-- Nav Item - My Profile -->
+    <li class="nav-item">
+        <a class="nav-link" href="">
+            <i class="fas fa-user"></i>
+            <span>My Profile</span></a>
+    </li>
+    <!-- Nav Item - Edit Profile -->
+    <li class="nav-item">
+        <a class="nav-link" href="">
+            <i class="fas fa-user-edit"></i>
+            <span>Edit Profile</span></a>
+    </li>
+
+
+
+    <!-- Logout dan toogle -->
     <!-- Divider -->
     <hr class="sidebar-divider">
     <!-- Nav Item - Logout -->

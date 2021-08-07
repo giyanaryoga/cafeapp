@@ -1,4 +1,4 @@
-<?= $this->extend('auth/template/index'); ?>
+<?= $this->extend('back/auth/template/index'); ?>
 
 <?= $this->section('content'); ?>
 <div class="container">
