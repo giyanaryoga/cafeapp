@@ -10,7 +10,9 @@
         <div class="col-lg-5">
             <h1 class="font-weight-light text-md-center">Gya Cafe And Creative Space</h1>
             <p class=" text-center">Selamat datang di Gya Cafe And Creative Space, silahkan klik tombol Pesan Sekarang! untuk melakukan pemesanan.</p>
-            <a class="btn btn-primary m-0 my-2 start-50" href="/order">Pesan Sekarang!</a>
+            <div class="d-flex justify-content-center">
+                <a class="btn btn-primary m-0 my-2" href="/order">Pesan Sekarang!</a>
+            </div>
         </div>
     </div>
     <!-- Call to Action-->
