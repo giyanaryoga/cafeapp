@@ -23,24 +23,24 @@ class Auth extends BaseController
 		$dataUser = $this->userModel->where(['username' => $username])->first();
 
 		if ($dataUser) {
-			if (password_verify($password, $dataUser->password)) {
-				$id = $dataUser->id_role;
+			if (password_verify($password, $dataUser['password'])) {
+				$id = $dataUser['id_role'];
 				switch ($id) {
 					case '1':
 						session()->set([
-							'username' => $dataUser->username,
-							'name' => $dataUser->name,
+							'username' => $dataUser['username'],
+							'name' => $dataUser['name'],
 							'logged_in' => true
 						]);
-						return redirect()->to(base_url('admin/*'));
+						return redirect()->to(base_url('admin'));
 						break;
 					default:
 						session()->set([
-							'username' => $dataUser->username,
-							'name' => $dataUser->name,
+							'username' => $dataUser['username'],
+							'name' => $dataUser['name'],
 							'logged_in' => true
 						]);
-						return redirect()->to(base_url('user/*'));
+						return redirect()->to(base_url('user'));
 						break;
 				}
 			}

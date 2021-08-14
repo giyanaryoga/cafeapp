@@ -15,7 +15,7 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4"><?= $title; ?></h1>
                                 </div>
-                                <?php if (!empty(session()->getFlashdata('error'))) : ?>
+                                <?php if (session()->getFlashdata('error')) : ?>
                                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
                                         <?= session()->getFlashdata('error'); ?>
                                     </div>
@@ -23,7 +23,7 @@
                                 <form class="user" action="<?= base_url(); ?>/login" method="post">
                                     <?= csrf_field() ?>
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" name="login" placeholder="Username">
+                                        <input type="text" class="form-control form-control-user" name="username" placeholder="Username">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user" name="password" placeholder="Password">

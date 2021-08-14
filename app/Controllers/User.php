@@ -22,7 +22,7 @@ class User extends BaseController
     public function detail($username)
     {
         //join ambil name role ke detail user
-        // $sql = "SELECT role.name as nameRole FROM ( SELECT role.* FROM role LEFT JOIN user ON role.id = user.id_role";
+        // $sql = "SELECT name_role as name FROM role left join user;
         // $result = $this->db->query($sql);
 
         $user = $this->userModel->getUser($username);
@@ -96,7 +96,7 @@ class User extends BaseController
 
         $this->userModel->insert([
             'username' => $this->request->getVar('username'),
-            'password' => password_hash($this->request->getVar('password'), PASSWORD_BCRYPT),
+            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
             'email' => $this->request->getVar('email'),
             'name' => $this->request->getVar('name'),
             'id_role' => $selected_role

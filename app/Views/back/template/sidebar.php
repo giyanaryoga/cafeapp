@@ -9,45 +9,67 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
+    <?php if (session()->get('id_role') === 1) { ?>
+        <!-- Menu saat role Admin -->
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Menu Admin
+        </div>
+        <!-- Nav Item - My Profile -->
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="fas fa-user"></i>
+                <span>My Profile</span>
+            </a>
+        </li>
+        <!-- Nav Item - Edit Profile -->
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="fas fa-user-edit"></i>
+                <span>User</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="fas fa-user-edit"></i>
+                <span>Menu</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="fas fa-user-edit"></i>
+                <span>Transaksi</span>
+            </a>
+        </li>
+    <?php } ?>
 
-    <!-- Menu saat role Admin -->
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Menu Admin
-    </div>
-    <!-- Nav Item - My Profile -->
-    <li class="nav-item">
-        <a class="nav-link" href="">
-            <i class="fas fa-user"></i>
-            <span>My Profile</span></a>
-    </li>
-    <!-- Nav Item - Edit Profile -->
-    <li class="nav-item">
-        <a class="nav-link" href="">
-            <i class="fas fa-user-edit"></i>
-            <span>Edit Profile</span></a>
-    </li>
-
-
-    <!-- Menu saat role User -->
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Menu User
-    </div>
-    <!-- Nav Item - My Profile -->
-    <li class="nav-item">
-        <a class="nav-link" href="">
-            <i class="fas fa-user"></i>
-            <span>My Profile</span></a>
-    </li>
-    <!-- Nav Item - Edit Profile -->
-    <li class="nav-item">
-        <a class="nav-link" href="">
-            <i class="fas fa-user-edit"></i>
-            <span>Edit Profile</span></a>
-    </li>
-
-
+    <?php if (session()->get('id_role') === 2) { ?>
+        <!-- Menu saat role User -->
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Menu User
+        </div>
+        <!-- Nav Item - My Profile -->
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="fas fa-user"></i>
+                <span>My Profile</span>
+            </a>
+        </li>
+        <!-- Nav Item - Edit Profile -->
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="fas fa-user-edit"></i>
+                <span>Pemesanan</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="fas fa-user-edit"></i>
+                <span>Pembayaran</span>
+            </a>
+        </li>
+    <?php } ?>
 
     <!-- Logout dan toogle -->
     <!-- Divider -->

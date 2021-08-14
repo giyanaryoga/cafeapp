@@ -42,6 +42,9 @@ $routes->get('/admin/role', 'Role::index');
 
 //User
 $routes->get('/login', 'Auth::index');
+$routes->post('/login', 'Auth::login');
+$routes->get('/logout', 'Auth::logout');
+
 $routes->get('/user', 'User::index');
 
 $routes->get('/admin/user', 'User::index');
