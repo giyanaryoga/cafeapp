@@ -6,8 +6,6 @@ use App\Controllers\BaseController;
 
 class Auth extends BaseController
 {
-	protected $userModel;
-
 	public function index()
 	{
 		$data = [
@@ -30,23 +28,29 @@ class Auth extends BaseController
 						session()->set([
 							'username' => $dataUser['username'],
 							'name' => $dataUser['name'],
+							'role' => $dataUser['id_role'],
 							'logged_in' => true
 						]);
-						return redirect()->to(base_url('admin'));
+						return redirect()->to(base_url('admin/'));
 						break;
-					default:
+					case '2':
 						session()->set([
 							'username' => $dataUser['username'],
 							'name' => $dataUser['name'],
+							'role' => $dataUser['id_role'],
 							'logged_in' => true
 						]);
-						return redirect()->to(base_url('user'));
+						return redirect()->to(base_url('user/'));
+						break;
+					default:
+						// session()->getFlashdata('error', 'Username & Password Salah');
+						return redirect()->back();
 						break;
 				}
 			}
 		} else {
 			session()->getFlashdata('error', 'Username & Password Salah');
-			return redirect()->back();
+			return redirect('/login');
 		}
 	}
 

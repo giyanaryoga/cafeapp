@@ -9,7 +9,7 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-    <?php if (session()->get('id_role') === 1) { ?>
+    <?php if (session()->get('role') == 1) { ?>
         <!-- Menu saat role Admin -->
         <!-- Heading -->
         <div class="sidebar-heading">
@@ -42,8 +42,7 @@
             </a>
         </li>
     <?php } ?>
-
-    <?php if (session()->get('id_role') === 2) { ?>
+    <?php if (session()->get('role') == 2) { ?>
         <!-- Menu saat role User -->
         <!-- Heading -->
         <div class="sidebar-heading">
