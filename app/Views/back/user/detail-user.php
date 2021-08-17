@@ -14,8 +14,7 @@
                             <p class="card-text"><b>Email: </b><?= $user['email']; ?></p>
                             <p class="card-text"><b>Nama: </b><?= $user['name']; ?></p>
                             <p class="card-text"><b>Role: </b><?= $user['id_role']; ?></p>
-                            <!-- <p class="card-text"><small class="text-muted"></small></p> -->
-                            <a href="/user/edit/<?= $user['id']; ?>" class="btn btn-warning">Edit</a>
+                            <a href="/user/change-password/<?= $user['username']; ?>" class="btn btn-warning">Change Password</a>
                             <br><br>
                         </div>
                     </div>

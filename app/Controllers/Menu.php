@@ -4,10 +4,6 @@ namespace App\Controllers;
 
 class Menu extends BaseController
 {
-    protected $menuModel;
-    protected $kategoriModel;
-    protected $statusMenuModel;
-
     public function index()
     {
         $currentPage = $this->request->getVar('page_menu') ? $this->request->getVar('page_menu') : 1;

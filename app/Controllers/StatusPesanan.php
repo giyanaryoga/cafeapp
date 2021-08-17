@@ -4,8 +4,6 @@ namespace App\Controllers;
 
 class StatusPesanan extends BaseController
 {
-    protected $statusPesananModel;
-
     public function index()
     {
         $statusPesanan = $this->statusPesananModel->findAll();

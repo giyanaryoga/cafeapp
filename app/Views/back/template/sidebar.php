@@ -8,7 +8,6 @@
     </a>
     <!-- Divider -->
     <hr class="sidebar-divider">
-
     <?php if (session()->get('role') == 1) { ?>
         <!-- Menu saat role Admin -->
         <!-- Heading -->
@@ -27,6 +26,12 @@
             <a class="nav-link" href="">
                 <i class="fas fa-user-edit"></i>
                 <span>User</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="fas fa-user-edit"></i>
+                <span>Kategori Menu</span>
             </a>
         </li>
         <li class="nav-item">
@@ -69,7 +74,6 @@
             </a>
         </li>
     <?php } ?>
-
     <!-- Logout dan toogle -->
     <!-- Divider -->
     <hr class="sidebar-divider">

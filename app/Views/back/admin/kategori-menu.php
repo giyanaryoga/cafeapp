@@ -8,13 +8,12 @@
             <h1 class="mb-4"><?= $title; ?></h1>
             <form action="/admin/kategori/save" method="post" class="d-inline">
                 <?= csrf_field(); ?>
-                <div class="row">
-                    <label for="name" class="col-sm-2 col-form-label">Nama Kategori:</label>
+                <div class="row my-3">
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="name" name="name" autofocus value="<?= old('name'); ?>">
+                        <input type="text" class="form-control" id="name" name="name" autofocus value="<?= old('name'); ?>" placeholder="Input Kategori Menu...">
                     </div>
+                    <button type="submit" class="btn btn-primary col-sm-2">Tambah</button>
                 </div>
-                <button type="submit" class="btn btn-primary my-1">Tambah</button>
             </form>
             <?php if (session()->getFlashdata('pesan')) : ?>
                 <div class="alert alert-success" role="alert">
@@ -30,7 +29,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $i = 1; ?>
+                    <?php $i = 1 + (3 * ($current - 1)); ?>
                     <?php foreach ($kategori as $k) : ?>
                         <tr>
                             <th scope="row"><?= $i++; ?></th>
@@ -46,6 +45,7 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
+            <?= $pager->links('kategori', 'pagination'); ?>
         </div>
     </div>
 </div>

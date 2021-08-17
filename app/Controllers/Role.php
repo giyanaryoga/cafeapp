@@ -4,8 +4,6 @@ namespace App\Controllers;
 
 class Role extends BaseController
 {
-    protected $roleModel;
-
     public function index()
     {
         $role = $this->roleModel->findAll();

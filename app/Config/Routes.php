@@ -28,9 +28,6 @@ $routes->setAutoRoute(true);
  * Route Definitions
  * --------------------------------------------------------------------
  */
-
-
-
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 //Frontend
@@ -51,17 +48,20 @@ $routes->get('/admin', 'User::index');
 $routes->get('/admin/user', 'User::index');
 $routes->get('/admin/user/register', 'User::register');
 $routes->post('/admin/user/save', 'User::save');
-$routes->get('/admin/user/edit/(:segment)', 'User::editUser/$1');
-$routes->put('/admin/user/update/(:num)', 'User::update/$1');
+$routes->get('/admin/user/edit/(:any)', 'User::editUser/$1');
+$routes->post('/admin/user/update/(:num)', 'User::update/$1');
 $routes->get('/admin/user/(:any)', 'User::detail/$1');
 $routes->delete('/admin/user/delete/(:num)', 'User::delete/$1');
 
 //Kategori Menu
 $routes->get('/admin/kategori', 'Kategori::index');
+$routes->post('/admin/kategori/save', 'Kategori::save');
+$routes->get('/admin/kategori/edit/(:num)', 'Kategori::editKategori/$1');
+$routes->post('/admin/kategori/update/(:num)', 'Kategori::update/$1');
+$routes->delete('/admin/kategori/delete/(:num)', 'Kategori::delete/$1');
 
 //StatusMenu
 $routes->get('/admin/status/menu', 'StatusMenu::index');
-
 //StatusPesanan
 $routes->get('/admin/status/pesanan', 'StatusPesanan::index');
 

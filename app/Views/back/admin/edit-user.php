@@ -8,6 +8,7 @@
             <h1 class="mb-4"><?= $title; ?></h1>
             <form action="/admin/user/update/<?= $user['id']; ?>" method="post">
                 <?= csrf_field(); ?>
+                <input type="hidden" name="password" value="<?= $user['password']; ?>">
                 <div class="row mb-3">
                     <label for="username" class="col-sm-2 col-form-label">Username:</label>
                     <div class="col-sm-10">
@@ -15,12 +16,6 @@
                         <div id="validationServer03Feedback" class="invalid-feedback">
                             <?= $validation->getError('username'); ?>
                         </div>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <!-- <label for="password" class="col-sm-2 col-form-label">Password:</label> -->
-                    <div class="col-sm-10">
-                        <input type="hidden" class="form-control" id="password" name="password" value="<?= (old('password')) ? old('password') : $user['password'] ?>">
                     </div>
                 </div>
                 <div class="row mb-3">
