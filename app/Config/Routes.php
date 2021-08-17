@@ -36,6 +36,17 @@ $routes->get('/order', 'Home::order');
 
 //Role
 $routes->get('/admin/role', 'Role::index');
+// $routes->post('/admin/role/save', 'Role::save');
+//StatusMenu
+$routes->get('/admin/status/menu', 'StatusMenu::index');
+//StatusPesanan
+$routes->get('/admin/status/pesanan', 'StatusPesanan::index');
+//Meja
+$routes->get('/admin/meja', 'Meja::index');
+$routes->post('/admin/meja/save', 'Meja::save');
+$routes->get('/admin/meja/edit/(:num)', 'Meja::editMeja/$1');
+$routes->post('/admin/meja/update/(:num)', 'Meja::update/$1');
+$routes->delete('/admin/meja/delete/(:num)', 'Meja::delete/$1');
 
 //User
 $routes->get('/login', 'Auth::index');
@@ -59,11 +70,6 @@ $routes->post('/admin/kategori/save', 'Kategori::save');
 $routes->get('/admin/kategori/edit/(:num)', 'Kategori::editKategori/$1');
 $routes->post('/admin/kategori/update/(:num)', 'Kategori::update/$1');
 $routes->delete('/admin/kategori/delete/(:num)', 'Kategori::delete/$1');
-
-//StatusMenu
-$routes->get('/admin/status/menu', 'StatusMenu::index');
-//StatusPesanan
-$routes->get('/admin/status/pesanan', 'StatusPesanan::index');
 
 //Menu
 $routes->get('/admin/menu', 'Menu::index');

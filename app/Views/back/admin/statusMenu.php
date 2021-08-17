@@ -12,7 +12,6 @@
                         <th scope="col">No.</th>
                         <th scope="col">Nama Status</th>
                         <th scope="col">Deskripsi</th>
-                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,8 +21,6 @@
                             <th scope="row"><?= $i++; ?></th>
                             <td><?= $sm['name']; ?></td>
                             <td><?= $sm['deskripsi']; ?></td>
-                            <td><a href="/admin/status/menu/edit/<?= $sm['id']; ?>" class="btn btn-warning col-lg-2">Edit</a>
-                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

@@ -13,4 +13,14 @@ class Role extends BaseController
         ];
         return view('back/admin/role', $data);
     }
+
+    // public function save()
+    // {
+    //     $namaRole = $this->request->getVar('name_role');
+    //     $this->roleModel->save([
+    //         'name_role' => $namaRole
+    //     ]);
+    //     session()->setFlashdata('pesan', 'Data berhasil ditambahkan.');
+    //     return redirect()->to('/admin/role');
+    // }
 }

@@ -9,15 +9,11 @@
             <form action="/admin/meja/save" method="post" class="d-inline">
                 <?= csrf_field(); ?>
                 <div class="row">
-                    <label for="nomor" class="col-sm-2 col-form-label">Nomor Meja:</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="nomor" name="nomor" autofocus value="<?= old('nomor'); ?>">
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="nomor" name="nomor" autofocus value="<?= old('nomor'); ?>" placeholder="Nomor Meja...">
                     </div>
-                </div>
-                <div class="row">
-                    <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi:</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="deskripsi" name="deskripsi" autofocus value="<?= old('deskripsi'); ?>">
+                        <input type="text" class="form-control" id="deskripsi" name="deskripsi" value="<?= old('deskripsi'); ?>" placeholder="Deskripsi...">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary my-1">Tambah</button>
@@ -41,7 +37,8 @@
                     <?php foreach ($meja as $mj) : ?>
                         <tr>
                             <th scope="row"><?= $i++; ?></th>
-                            <td><?= $mj['name']; ?></td>
+                            <td><?= $mj['nomor']; ?></td>
+                            <td><?= $mj['deskripsi']; ?></td>
                             <td><a href="/admin/meja/edit/<?= $mj['id']; ?>" class="btn btn-warning col-lg-2">Edit</a>
                                 <form action="/admin/meja/delete/<?= $mj['id']; ?>" method="POST" class="d-inline">
                                     <?= csrf_field(); ?>

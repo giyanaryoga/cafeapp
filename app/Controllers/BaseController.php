@@ -58,12 +58,13 @@ class BaseController extends Controller
 
 		$this->kategoriModel = new \App\Models\KategoriModel();
 		$this->statusMenuModel = new \App\Models\StatusMenuModel();
-		$this->menuModel = new \App\Models\MenuModel();
+		$this->statusPesananModel = new \App\Models\StatusPesananModel();
 		$this->roleModel = new \App\Models\RoleModel();
+		$this->menuModel = new \App\Models\MenuModel();
 		$this->userModel = new \App\Models\UserModel();
+		$this->mejaModel = new \App\Models\MejaModel();
 		// $this->customerModel = new \App\Models\CustomerModel();
 		// $this->detailPesanModel = new \App\Models\DetailPesanModel();
-		// $this->statusPesananModel = new \App\Models\StatusPesananModel();
 		// $this->pesananModel = new \App\Models\PesananModel();
 		// $this->transaksiModel = new \App\Models\TransaksiModel();
 	}
