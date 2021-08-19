@@ -11,7 +11,7 @@
                 <div class="row mb-3">
                     <label for="name" class="col-sm-2 col-form-label">Nama Kategori:</label>
                     <div class="col-sm-10">
-                        <input type="name" class="form-control" id="name" name="name" value="<?= (old('name')) ? old('name') : $kategori['name'] ?>">
+                        <input type="name" class="form-control" id="name" name="nama_kategori" value="<?= (old('namaKategori')) ? old('namaKategori') : $kategori['namaKategori'] ?>">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary col-lg-2">Edit</button>

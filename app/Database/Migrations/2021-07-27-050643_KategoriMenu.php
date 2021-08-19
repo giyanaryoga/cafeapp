@@ -14,7 +14,7 @@ class KategoriMenu extends Migration
 				'unsigned' => true,
 				'auto_increment' => true
 			],
-			'name' => [
+			'namaKategori' => [
 				'type' => 'VARCHAR',
 				'constraint' => 50,
 			],

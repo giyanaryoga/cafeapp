@@ -16,6 +16,9 @@ class MenuModel extends Model
             return $this->paginate(3, 'menu');
         }
 
-        return $this->where(['slug' => $slug])->first();
+        return $this->join('kategorimenu', 'kategorimenu.id = menu.id_kategori')
+            ->join('statusmenu', 'statusmenu.id = menu.id_status')
+            ->where(['slug' => $slug])
+            ->first();
     }
 }

@@ -16,7 +16,7 @@ class UserModel extends Model
         if ($username == false) {
             return $this->paginate(3, 'user');
         }
-
-        return $this->where(['username' => $username])->first();
+        //join dgn role
+        return $this->join('role', 'role.id = user.id_role')->where(['username' => $username])->first();
     }
 }

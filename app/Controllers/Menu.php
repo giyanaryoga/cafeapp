@@ -19,10 +19,10 @@ class Menu extends BaseController
 
     public function detail($slug)
     {
-
+        $menu = $this->menuModel->getMenu($slug);
         $data = [
             'title' => 'Detail Menu',
-            'menu' => $this->menuModel->getMenu($slug)
+            'menu' => $menu
         ];
 
         if (empty($data['menu'])) {

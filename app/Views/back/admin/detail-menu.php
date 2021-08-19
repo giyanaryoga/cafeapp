@@ -14,9 +14,9 @@
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title"><b><?= $menu['namaMenu']; ?></b></h5>
-                            <p class="card-text"><b>Kategori menu: </b><?= $menu['id_kategori']; ?></p>
+                            <p class="card-text"><b>Kategori menu: </b><?= $menu['namaKategori']; ?></p>
                             <p class="card-text"><b>Harga: </b><?= $menu['harga']; ?></p>
-                            <p class="card-text"><b>Status: </b><?= $menu['id_status']; ?></p>
+                            <p class="card-text"><b>Status: </b><?= $menu['name']; ?></p>
                             <a href="/admin/menu/edit/<?= $menu['slug']; ?>" class="btn btn-warning">Edit</a>
                             <form action="/admin/menu/delete/<?= $menu['id']; ?>" method="POST" class="d-inline">
                                 <?= csrf_field(); ?>

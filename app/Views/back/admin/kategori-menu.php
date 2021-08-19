@@ -10,7 +10,7 @@
                 <?= csrf_field(); ?>
                 <div class="row my-3">
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="name" name="name" autofocus value="<?= old('name'); ?>" placeholder="Input Kategori Menu...">
+                        <input type="text" class="form-control" id="name" name="namaKategori" autofocus value="<?= old('namaKategori'); ?>" placeholder="Input Kategori Menu...">
                     </div>
                     <button type="submit" class="btn btn-primary col-sm-2">Tambah</button>
                 </div>
@@ -33,7 +33,7 @@
                     <?php foreach ($kategori as $k) : ?>
                         <tr>
                             <th scope="row"><?= $i++; ?></th>
-                            <td><?= $k['name']; ?></td>
+                            <td><?= $k['namaKategori']; ?></td>
                             <td><a href="/admin/kategori/edit/<?= $k['id']; ?>" class="btn btn-warning col-lg-2">Edit</a>
                                 <form action="/admin/kategori/delete/<?= $k['id']; ?>" method="POST" class="d-inline">
                                     <?= csrf_field(); ?>

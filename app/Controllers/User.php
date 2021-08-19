@@ -18,15 +18,10 @@ class User extends BaseController
 
     public function detail($username)
     {
-        //join ambil name role ke detail user
-        // $sql = "SELECT name_role as name FROM role left join user;
-        // $result = $this->db->query($sql);
-
         $user = $this->userModel->getUser($username);
         $data = [
             'title' => 'Detail User',
-            'user' => $user,
-            // 'role' => $result
+            'user' => $user
         ];
 
         if (empty($data['user'])) {

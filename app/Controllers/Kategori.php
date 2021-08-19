@@ -22,7 +22,7 @@ class Kategori extends BaseController
         $namaKategori = $this->request->getVar('name');
 
         $this->kategoriModel->save([
-            'name' => $namaKategori
+            'namaKategori' => $namaKategori
         ]);
 
         session()->setFlashdata('pesan', 'Data berhasil ditambahkan.');
@@ -53,7 +53,7 @@ class Kategori extends BaseController
 
         $this->kategoriModel->save([
             'id' => $id,
-            'name' => $namaKategori
+            'namaKategori' => $namaKategori
         ]);
 
         session()->setFlashdata('pesan', 'Data berhasil diubah.');
