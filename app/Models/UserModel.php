@@ -19,4 +19,8 @@ class UserModel extends Model
         //join dgn role
         return $this->join('role', 'role.id = user.id_role')->where(['username' => $username])->first();
     }
+    public function get($id)
+    {
+        return $this->where(['id' => $id])->first();
+    }
 }

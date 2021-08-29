@@ -52,10 +52,8 @@ $routes->delete('/admin/meja/delete/(:num)', 'Meja::delete/$1');
 $routes->get('/login', 'Auth::index');
 $routes->post('/login', 'Auth::login');
 $routes->get('/logout', 'Auth::logout');
-
-$routes->get('/user', 'User::index');
+//role admin
 $routes->get('/admin', 'User::index');
-
 $routes->get('/admin/user', 'User::index');
 $routes->get('/admin/user/register', 'User::register');
 $routes->post('/admin/user/save', 'User::save');
@@ -63,6 +61,10 @@ $routes->get('/admin/user/edit/(:any)', 'User::editUser/$1');
 $routes->post('/admin/user/update/(:num)', 'User::update/$1');
 $routes->get('/admin/user/(:any)', 'User::detail/$1');
 $routes->delete('/admin/user/delete/(:num)', 'User::delete/$1');
+//role user
+$routes->get('/user', 'User::index');
+$routes->get('/user/changepassword/(:any)', 'User::changePassword/$1');
+$routes->post('/user/update/change-password/(:num)', 'User::changes/$1');
 
 //Kategori Menu
 $routes->get('/admin/kategori', 'Kategori::index');

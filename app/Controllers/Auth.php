@@ -43,13 +43,13 @@ class Auth extends BaseController
 						return redirect()->to(base_url('user/'));
 						break;
 					default:
-						// session()->getFlashdata('error', 'Username & Password Salah');
+						session()->setFlashdata('error', 'Username & Password Salah');
 						return redirect()->back();
 						break;
 				}
 			}
 		} else {
-			session()->getFlashdata('error', 'Username & Password Salah');
+			session()->setFlashdata('error', 'Username & Password Salah');
 			return redirect('/login');
 		}
 	}

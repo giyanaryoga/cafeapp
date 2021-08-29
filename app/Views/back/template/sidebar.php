@@ -60,7 +60,12 @@
                 <span>My Profile</span>
             </a>
         </li>
-        <!-- Nav Item - Edit Profile -->
+        <li class="nav-item">
+            <a class="nav-link" href="<?php base_url(); ?>/user/changepassword/<?= session()->get('username'); ?>">
+                <i class="fas fa-user-edit"></i>
+                <span>Change Password</span>
+            </a>
+        </li>
         <li class="nav-item">
             <a class="nav-link" href="">
                 <i class="fas fa-user-edit"></i>

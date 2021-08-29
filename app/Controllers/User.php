@@ -57,10 +57,10 @@ class User extends BaseController
                 ]
             ],
             'password' => [
-                'rules' => 'required|min_length[8]|max_length[50]',
+                'rules' => 'required|min_length[4]|max_length[50]',
                 'errors' => [
                     'required' => '{field} harus diisi',
-                    'min_length' => '{field} minimal 8 karakter',
+                    'min_length' => '{field} minimal 4 karakter',
                     'max_length' => '{field} maksimal 50 karakter'
                 ]
             ],
@@ -162,41 +162,58 @@ class User extends BaseController
             'user' => $this->userModel->getUser($username)
         ];
 
-        return view('/back/user/edit-user', $data);
+        return view('/back/user/change-password', $data);
     }
 
     public function changes($id)
     {
         //validasi input
         if (!$this->validate([
-            'username' => [
-                'rules' => 'required|is_unique[user.username,id,' . $id . ']|min_length[6]|max_length[50]',
-                'errors' => [
-                    'required' => '{field} harus diisi.',
-                    'is_unique' => 'Username sudah terdaftar',
-                    'min_length' => '{field} minimal 6 karakter',
-                    'max_length' => '{field} maksimal 50 karakter'
-                ]
-            ],
-            'role' => [
+            'current_password' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} tidak boleh kosong dan harap dipilih'
+                    'required' => 'Field harus diisi',
+                ]
+            ],
+            'new_password1' => [
+                'rules' => 'required|min_length[4]|max_length[50]',
+                'errors' => [
+                    'required' => 'Field harus diisi',
+                    'min_length' => 'Field minimal 4 karakter',
+                    'max_length' => 'Field maksimal 50 karakter'
+                ]
+            ],
+            'new_password2' => [
+                'rules' => 'matches[new_password1]',
+                'errors' => [
+                    'matches' => 'Konfirmasi password tidak sama dengan password'
                 ]
             ]
         ])) {
-            return redirect()->to('/user/edit/' . $this->request->getVar('username'))->withInput();
+            return redirect()->to('/user/changepassword/' . $this->request->getVar('username'))->withInput();
         }
-        $selected_role = $_POST['role'];
-        $this->userModel->save([
-            'id' => $id,
-            'username' => $this->request->getVar('username'),
-            'password' => $this->request->getVar('password'),
-            'email' => $this->request->getVar('email'),
-            'name' => $this->request->getVar('name'),
-            'id_role' => $selected_role
-        ]);
-        session()->setFlashdata('pesan', 'Data berhasil diubah.');
+
+        $username = $this->request->getVar('username');
+        $dataUser = $this->userModel->where(['username' => $username]);
+        dd($dataUser);
+        $current_pass = $this->request->getVar('current_password');
+        $new_pass = $this->request->getVar('new_password1');
+
+        if (!password_verify($current_pass, $dataUser['password'])) {
+            session()->setFlashdata('pesan-gagal', 'Wrong password.');
+            return redirect()->to('/user/changepassword/' . $this->request->getVar('username'));
+        }
+        if ($current_pass == $new_pass) {
+            session()->setFlashdata('pesan-gagal', 'New password cannot be the same as current password.');
+            return redirect()->to('/user/changepassword/' . $this->request->getVar('username'));
+        } else {
+            $password_hash = password_hash($new_pass, PASSWORD_DEFAULT);
+            $this->userModel->update([
+                'id' => $id,
+                'password' => $password_hash,
+            ]);
+            session()->setFlashdata('pesan', 'Password berhasil diubah.');
+        }
 
         return redirect()->to('/user');
     }
